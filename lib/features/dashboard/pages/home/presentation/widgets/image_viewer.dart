@@ -47,7 +47,7 @@ class ImageViewer extends StatelessWidget {
                   minWidth: 50.0,
                   maxWidth: context.width,
                   duration: const Duration(seconds: 2),
-                  playAfter: const Duration(seconds: 4),
+                  playAfter: const Duration(milliseconds: 3000),
                   child: Stack(
                     children: [
                       Container(
@@ -57,7 +57,7 @@ class ImageViewer extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         child: FadeInAnimation(
-                          playAfter: const Duration(seconds: 5),
+                          playAfter: const Duration(seconds: 4),
                           child: Text(address, style: context.titleMedium.copyWith(fontWeight: FontWeight.bold)).center().paddingOnly(right: 25.0),
                         ),
                       ),
