@@ -68,7 +68,7 @@ class ListingItems extends StatelessWidget {
               mainAxisCellCount: 1,
               child: ImageViewer(
                 path: Assets.images.image2.path,
-                address: 'Goo day',
+                address: 'Nigeria',
               ),
             ),
             StaggeredGridTile.count(
@@ -76,7 +76,7 @@ class ListingItems extends StatelessWidget {
               mainAxisCellCount: 1,
               child: ImageViewer(
                 path: Assets.images.image2.path,
-                address: 'Goo day',
+                address: 'Nigeria',
               ),
             ),
             StaggeredGridTile.count(
@@ -84,7 +84,7 @@ class ListingItems extends StatelessWidget {
               mainAxisCellCount: 1,
               child: ImageViewer(
                 path: Assets.images.image2.path,
-                address: 'Goo day',
+                address: 'Nigeria',
               ),
             ),
             StaggeredGridTile.count(
@@ -92,7 +92,7 @@ class ListingItems extends StatelessWidget {
               mainAxisCellCount: 2,
               child: ImageViewer(
                 path: Assets.images.image2.path,
-                address: 'Goo day',
+                address: 'Nigeria',
               ),
             ),
           ],
