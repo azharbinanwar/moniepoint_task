@@ -7,7 +7,7 @@ import 'package:moniepoint_test/core/extensions/build_context_extension.dart';
 import 'package:moniepoint_test/core/extensions/widget_extension.dart';
 import 'package:moniepoint_test/core/widgets/app_image.dart';
 
-class ImageViewer extends StatefulWidget {
+class ImageViewer extends StatelessWidget {
   final String path;
   final String address;
 
@@ -18,28 +18,13 @@ class ImageViewer extends StatefulWidget {
   });
 
   @override
-  State<ImageViewer> createState() => _ImageViewerState();
-}
-
-class _ImageViewerState extends State<ImageViewer> {
-  bool _isExpanded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(const Duration(seconds: 4), () {
-      setState(() => _isExpanded = true);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12.0),
           child: AppImage.asset(
-            widget.path,
+            path,
             borderRadius: BorderRadius.circular(12.0),
             width: double.infinity,
             height: double.infinity,
@@ -61,8 +46,8 @@ class _ImageViewerState extends State<ImageViewer> {
                   minHeight: 50.0,
                   minWidth: 50.0,
                   maxWidth: context.width,
-                  duration: const Duration(milliseconds: 1),
-                  playAfter: const Duration(seconds: 5),
+                  duration: const Duration(seconds: 2),
+                  playAfter: const Duration(seconds: 4),
                   child: Stack(
                     children: [
                       Container(
@@ -72,10 +57,8 @@ class _ImageViewerState extends State<ImageViewer> {
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         child: FadeInAnimation(
-                          playAfter: const Duration(seconds: 6),
-                          child: Text(widget.address, style: context.titleMedium.copyWith(fontWeight: FontWeight.bold))
-                              .center()
-                              .paddingOnly(right: 25.0),
+                          playAfter: const Duration(seconds: 5),
+                          child: Text(address, style: context.titleMedium.copyWith(fontWeight: FontWeight.bold)).center().paddingOnly(right: 25.0),
                         ),
                       ),
                       Positioned(

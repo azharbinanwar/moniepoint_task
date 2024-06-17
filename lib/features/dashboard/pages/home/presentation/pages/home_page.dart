@@ -48,12 +48,13 @@ class HomePage extends StatelessWidget {
                       ).paddingAll(16.0),
                     ),
                   ),
-                  BuyAndRentItem(),
+                  const BuyAndRentItem(),
                 ],
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: ListingItems())
+          const SliverToBoxAdapter(child: ListingItems()),
+          const SliverToBoxAdapter(child: SizedBox(height: 72.0)),
         ],
       ).safeArea(),
     );

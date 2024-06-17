@@ -8,10 +8,10 @@ class AppScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;
 
   const AppScaffold({
+    super.key,
     this.drawer,
     this.appBar,
     this.body,
-    super.key,
     this.scaffoldKey,
   });
 

@@ -27,48 +27,27 @@ class SizeAnimation extends StatefulWidget {
 }
 
 class _SizeAnimationState extends State<SizeAnimation> with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<double> _heightAnimation;
-  late final Animation<double> _widthAnimation;
+  bool _isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: widget.duration);
-
-    _heightAnimation = Tween<double>(
-      begin: widget.minHeight ?? 0.0,
-      end: widget.maxHeight ?? 0.0,
-    ).animate(_controller);
-
-    _widthAnimation = Tween<double>(
-      begin: widget.minWidth ?? 0.0,
-      end: widget.maxWidth ?? 0.0,
-    ).animate(_controller);
 
     Future.delayed(widget.playAfter, () {
-      _controller.forward();
+      if (mounted) {
+        _isPlaying = true;
+        setState(() {});
+      }
     });
   }
 
   @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _heightAnimation,
-      builder: (context, child) => SizedBox(
-        height: _heightAnimation.value,
-        width: _widthAnimation.value.clamp(
-          widget.minWidth ?? 0.0, // Ensure width stays within min/max
-          widget.maxWidth ?? double.infinity,
-        ),
-        child: child,
-      ),
+    return AnimatedContainer(
+      duration: widget.duration,
+      curve: widget.curve,
+      width: _isPlaying ? widget.maxWidth : widget.minWidth,
+      height: _isPlaying ? widget.maxHeight : widget.minHeight,
       child: widget.child,
     );
   }
